@@ -1,0 +1,210 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "test test",
+    "category": "sport",
+    "description": "test test",
+    "image": "images/1412951602_IdeaPad_B5030_02_QTSnhsT.jpeg",
+    "created_at": "2022-10-29T06:04:23.392Z",
+    "changed_at": "2022-10-29T09:42:20.566Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Laptop Lenovo Ideapad",
+    "category": "computers",
+    "description": "Laptop Lenovo Ideapad  301",
+    "image": "images/1412951602_IdeaPad_B5030_02.jpeg",
+    "created_at": "2022-10-29T06:46:59.532Z",
+    "changed_at": "2022-10-29T07:14:43.766Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Laptop Lenovo Ideapad",
+    "category": "computers",
+    "description": "Laptop Lenovo Ideapad  301",
+    "image": "images/1412951602_IdeaPad_B5030_02.jpeg",
+    "created_at": "2022-10-29T07:30:18.643Z",
+    "changed_at": "2022-10-29T12:47:25.248Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Soccer ball",
+    "category": "sport",
+    "description": "Soccer ball MIX Chempion",
+    "image": "images/unnamed.jpg",
+    "created_at": "2022-10-29T07:32:54.337Z",
+    "changed_at": "2022-10-29T12:49:10.647Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Спорт",
+    "category": "sport",
+    "description": "Спорт",
+    "image": "",
+    "created_at": "2022-10-29T09:37:16.633Z",
+    "changed_at": "2022-10-29T09:38:11.101Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Спорт",
+    "category": "sport",
+    "description": "СпортСпортСпорт",
+    "image": "",
+    "created_at": "2022-10-29T09:38:21.530Z",
+    "changed_at": "2022-10-29T12:49:40.811Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "Rope",
+    "category": "other",
+    "description": "Rope Jute",
+    "image": "images/141510386_veryovka-dzhutovaya-14.webp",
+    "created_at": "2022-10-29T09:52:11.019Z",
+    "changed_at": "2022-10-29T12:51:33.796Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "product": 4,
+    "review_text": "review text",
+    "grade": 5,
+    "created_at": "2022-10-29T08:09:12.667Z",
+    "changed_at": "2022-10-29T09:11:54.154Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "review_text": "hhhhh",
+    "grade": 4,
+    "created_at": "2022-10-29T08:36:37.635Z",
+    "changed_at": "2022-10-29T09:13:28.253Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "review_text": "G",
+    "grade": 1,
+    "created_at": "2022-10-29T09:24:29.658Z",
+    "changed_at": "2022-10-29T09:51:02.179Z",
+    "is_deleted": true
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 15,
+  "fields": {
+    "author": 5,
+    "product": 6,
+    "review_text": "John",
+    "grade": 1,
+    "created_at": "2022-10-29T12:33:11.717Z",
+    "changed_at": "2022-10-29T12:39:35.748Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 16,
+  "fields": {
+    "author": 7,
+    "product": 3,
+    "review_text": "Review for that product",
+    "grade": 5,
+    "created_at": "2022-10-29T13:01:59.302Z",
+    "changed_at": "2022-10-29T13:01:59.302Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 17,
+  "fields": {
+    "author": 7,
+    "product": 4,
+    "review_text": "Review for that product",
+    "grade": 4,
+    "created_at": "2022-10-29T13:02:28.664Z",
+    "changed_at": "2022-10-29T13:02:28.664Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 18,
+  "fields": {
+    "author": 5,
+    "product": 7,
+    "review_text": "Review for that product",
+    "grade": 3,
+    "created_at": "2022-10-29T13:03:20.534Z",
+    "changed_at": "2022-10-29T13:03:20.534Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 19,
+  "fields": {
+    "author": 5,
+    "product": 3,
+    "review_text": "Review for that product from John",
+    "grade": 3,
+    "created_at": "2022-10-29T13:03:38.169Z",
+    "changed_at": "2022-10-29T13:03:38.169Z",
+    "is_deleted": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 20,
+  "fields": {
+    "author": 5,
+    "product": 4,
+    "review_text": "Review for that product from John",
+    "grade": 5,
+    "created_at": "2022-10-29T13:04:04.896Z",
+    "changed_at": "2022-10-29T13:04:04.896Z",
+    "is_deleted": false
+  }
+}
+]
