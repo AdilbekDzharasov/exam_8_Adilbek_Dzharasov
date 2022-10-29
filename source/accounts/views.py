@@ -85,6 +85,14 @@ class AccountChangeView(UpdateView):
     def get_success_url(self):
         return reverse('account_detail', kwargs={'pk': self.object.pk})
 
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        user = form.save()
+        update_session_auth_hash(self.request, user)
+        return HttpResponseRedirect(self.get_success_url())
+
 
 class AccountPasswordChangeView(UpdateView):
     model = get_user_model()
