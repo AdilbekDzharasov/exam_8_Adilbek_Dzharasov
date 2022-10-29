@@ -45,7 +45,7 @@ Product
             <div class="col">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <h3 class="card-text">Author: {{ review.author }}</h3>
+                  <h3 class="card-text"><a href="{% url 'account_detail' review.author.pk %}">Author {{ review.author }}</a></h3>
                   <p class="card-text">Author email: {{ review.author.email }}</p>
                   <p class="card-text">Review text: {{ review.review_text }}</p>
                   <p class="card-text">Grade: {{ review.grade }}</p>

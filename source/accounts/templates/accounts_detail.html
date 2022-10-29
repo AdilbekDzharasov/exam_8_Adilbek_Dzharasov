@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block task %}
+
+    <div class="container">
+      <h4 class="mb-4">User</h4>
+        <div class="table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Login</th>
+                <th>First name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td class="text">{{ account.username }}</td>
+                  <td class="text">{{ account.first_name }}</td>
+                  <td class="text">{{ account.email }}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+      <div class="table">
+        <h3>Reviews list</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Review text</th>
+              </tr>
+            </thead>
+            <tbody>
+             {% for review in reviews %}
+                <tr>
+                  <td class="text">{{ review.product }}</td>
+                  <td class="text">{{ review.review_text }}</td>
+                </tr>
+              {% empty %}
+            {% endfor %}
+            </tbody>
+          </table>
+      </div>
+
+    </div>
+
+
+{% if is_paginated %}
+  {% include 'partial/pagination.html' %}
+{% endif %}
+
+{% endblock %}
