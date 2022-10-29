@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from webapp.managers import ProductManager
 
 
 class Product(models.Model):
@@ -48,6 +50,13 @@ class Product(models.Model):
         default=False,
         null=False
     )
+
+    object = ProductManager()
+
+    def delete(self, using=None, keep_parents=False):
+        self.deleted_at = timezone.now()
+        self.is_deleted = True
+        self.save()
 
     def __str__(self):
         return f"{self.name} - {self.category}"
