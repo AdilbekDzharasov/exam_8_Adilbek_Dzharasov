@@ -11,21 +11,23 @@ Product
 
     <div class="col">
       <div class="card flex-md-row mb-4 box-shadow h-md-300">
-        <img class="card-img-right flex-auto d-none d-md-block" data-src="{{ product.image }}" alt="Thumbnail [200x250]" style="width: 350px; height: 300px;" src="{{ product.image }}" data-holder-rendered="true">
-        <div class="card-body d-flex flex-column align-items-start">
+          {% if product.image %}
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="{{ product.image.url }}" alt="Thumbnail [200x250]" style="width: 350px; height: 300px;" src="{{ product.image.url }}" data-holder-rendered="true">
+          {% else %}
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="../media/no.jpg" alt="Thumbnail [200x250]" style="width: 350px; height: 300px;" src="../media/no.jpg" data-holder-rendered="true">
+          {% endif %}
+         <div class="card-body d-flex flex-column align-items-start">
           <h4 class="mb-4">{{ product.name }}</h4>
-          {% for choice in choices %}
-            {% if product.categories == choice.0 %}
-              <div class="mb-4 text-muted">Category: {{ choice.1 }}</div>
-            {% endif %}
-          {% endfor %}
           <h5 class="mb-4">Category: {{ product.category }}</h5>
           <p class="card-text mb-4">Description: {{ product.description }}</p>
-          <p class="card-text mb-4"></p>
-          <div class="mt-4">
-            <a href="{% url 'product_home' %}" class="btn btn-sm btn-outline-secondary">← Go back to the "My-market"</a>
-            <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></a>
-            <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-trash-fill"></i></a>
+          {% with avg_ratings=product.avg_ratings %}
+            <p class="card-text">Average rating: {{ avg_ratings.grade__avg|floatformat|default:0 }}</p>
+          {% endwith %}
+          <div class="">
+            <a href="{% url 'product_home' %}" class="btn btn-sm btn-outline-secondary">← Go back to the all products</a>
+            <a href="{% url 'product_review_add' product.pk %}" class="btn btn-sm btn-outline-secondary">Add a review</a>
+            <a href="{% url 'product_update' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></a>
+            <a href="{% url 'product_delete' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-trash-fill mb-3"></i></a>
           </div>
           <small class="text-muted mt-4">Added in: {{ product.created_at }}</small>
         </div>
@@ -34,5 +36,50 @@ Product
 
   </div>
 </div>
+
+{% for review in product.products.all %}
+
+<div class="album py-3 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                  <h3 class="card-text">Author: {{ review.author }}</h3>
+                  <p class="card-text">Author email: {{ review.author.email }}</p>
+                  <p class="card-text">Review text: {{ review.review_text }}</p>
+                  <p class="card-text">Grade: {{ review.grade }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class>
+                      <a href="{% url 'review_update' review.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
+                      <a href="{% url 'review_delete' review.pk %}" class="btn btn-sm btn-outline-secondary">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+</div>
+
+{% empty %}
+<div class="album py-3 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col">
+              <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                  <h3 class="card-text">The product has no reviews!</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+</div>
+
+{% endfor %}
 
 {% endblock %}

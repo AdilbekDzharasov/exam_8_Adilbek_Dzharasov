@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 from django.utils import timezone
-from webapp.managers import ProductManager
+from webapp.managers import CustomManager
 
 
 class Product(models.Model):
@@ -51,12 +52,17 @@ class Product(models.Model):
         null=False
     )
 
-    object = ProductManager()
+    object = CustomManager()
 
     def delete(self, using=None, keep_parents=False):
         self.deleted_at = timezone.now()
         self.is_deleted = True
         self.save()
+
+    def avg_ratings(self):
+        return self.products.aggregate(
+            Avg('grade')
+        )
 
     def __str__(self):
         return f"{self.name} - {self.category}"
@@ -113,6 +119,8 @@ class Review(models.Model):
         default=False,
         null=False
     )
+
+    object = CustomManager()
 
     def __str__(self):
         return f"{self.author}. {self.product}. {self.review_text}. {self.grade}"
