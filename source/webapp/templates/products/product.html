@@ -25,9 +25,11 @@ Product
           {% endwith %}
           <div class="">
             <a href="{% url 'product_home' %}" class="btn btn-sm btn-outline-secondary">← Go back to the all products</a>
-            <a href="{% url 'product_review_add' product.pk %}" class="btn btn-sm btn-outline-secondary">Add a review</a>
-            <a href="{% url 'product_update' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></a>
-            <a href="{% url 'product_delete' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-trash-fill mb-3"></i></a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'product_review_add' product.pk %}" class="btn btn-sm btn-outline-secondary">Add a review</a>
+                <a href="{% url 'product_update' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'product_delete' product.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-trash-fill mb-3"></i></a>
+            {% endif %}
           </div>
           <small class="text-muted mt-4">Added in: {{ product.created_at }}</small>
         </div>
@@ -51,8 +53,10 @@ Product
                   <p class="card-text">Grade: {{ review.grade }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class>
+                    {% if user.is_authenticated %}
                       <a href="{% url 'review_update' review.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
                       <a href="{% url 'review_delete' review.pk %}" class="btn btn-sm btn-outline-secondary">Delete</a>
+                    {% endif %}
                     </div>
                   </div>
                 </div>

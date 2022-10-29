@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView
 from webapp.models import Review
@@ -5,7 +6,7 @@ from webapp.forms import ProductReviewForm
 from webapp.models import Product
 
 
-class ProductReviewAddView(CreateView):
+class ProductReviewAddView(LoginRequiredMixin, CreateView):
     model = Review
     template_name = 'reviews/product_review_add.html'
     form_class = ProductReviewForm
